@@ -1,0 +1,6 @@
+use_frameworks!
+target 'MYUIKit_Tests' do
+  pod 'MYUIKit', :path => '../'
+  
+  
+end
