@@ -31,7 +31,7 @@
 //    hud.customView = [[UIImageView alloc] initWithImage:icon];  // 设置图片
     hud.bezelView.backgroundColor = [UIColor grayColor];    //背景颜色
     // 设置图片
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MYUIKit.bundle/%@", icon]]];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
     hud.completionBlock = completion;
@@ -73,7 +73,9 @@
 }
 
 + (void)showError:(NSString *)error toView:(UIView *)view{
-    [self show:error icon:@"error.png" view:view];
+    //TODO: wmy 错误图片
+//    [self show:error icon:@"error.png" view:view];
+    [self show:error icon:nil view:view];
 }
 
 + (void)showTip:(NSString *)tip toView:(UIView *)view completion:(void(^)(void))completion {
