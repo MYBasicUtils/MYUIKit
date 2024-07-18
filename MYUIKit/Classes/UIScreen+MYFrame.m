@@ -8,7 +8,7 @@
 #import "UIScreen+MYFrame.h"
 #import "UIView+MYFrame.h"
 #import "UIDevice+TYCategory.h"
-#import "TYHierarchyManager.h"
+#import "MYHierarchyManager.h"
 
 static CGFloat KTYScreenAdaptionBase = 375.0;
 static CGFloat _KTYScreenTabBarHeight = CGFLOAT_MIN;
@@ -26,14 +26,7 @@ static CGFloat _KTYScreenTabBarHeight = CGFLOAT_MIN;
         static BOOL isNotchScreen;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            if (![UIApplication sharedApplication].windows.firstObject) {
-                UIWindow *win = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-                win.backgroundColor = [UIColor whiteColor];
-                [UIApplication sharedApplication].delegate.window = win;
-                [win makeKeyWindow];
-            }
-            
-            isNotchScreen = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom > 0;
+            isNotchScreen = MY_MainWindow().safeAreaInsets.bottom > 0;
         });
         return isNotchScreen;
     }
@@ -84,7 +77,7 @@ inline CGFloat MY_ScreenHeight(void) {
 
 inline UIEdgeInsets MY_ScreenSafeInsets(void) {
     if (@available(iOS 11.0, *)) {
-        return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
+        return MY_MainWindow().safeAreaInsets;
     }
     return UIEdgeInsetsZero;
 }

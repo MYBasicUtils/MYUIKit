@@ -5,7 +5,7 @@
 //  Created by wmy on 2019/5/30.
 //
 
-#import "TYHierarchyManager.h"
+#import "MYHierarchyManager.h"
 
 
 inline UIWindow * MY_MainWindow(void) {
@@ -14,13 +14,10 @@ inline UIWindow * MY_MainWindow(void) {
         return [appDelegate window];
     }
     
-    NSArray *windows = [UIApplication sharedApplication].windows;
-    if ([windows count] == 1) {
-        return [windows firstObject];
-    }
-    for (UIWindow *window in windows) {
-        if (window.windowLevel == UIWindowLevelNormal) {
-            return window;
+    NSSet *connectedScenes = [UIApplication sharedApplication].connectedScenes;
+    for (UIWindowScene *windowScene in connectedScenes) {
+        if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+            return windowScene.windows.firstObject;
         }
     }
     return nil;

@@ -9,7 +9,7 @@
 #define MYUIKit_h
 
 #import "UIView+MYFrame.h"
-#import "TYHierarchyManager.h"
+#import "MYHierarchyManager.h"
 #import "UIScreen+MYFrame.h"
 #import "UIDevice+TYSystemInfo.h"
 #import "UIColor+MYHex.h"

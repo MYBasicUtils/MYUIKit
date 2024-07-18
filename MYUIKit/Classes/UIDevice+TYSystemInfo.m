@@ -24,5 +24,5 @@ inline BOOL MY_IsIOS(CGFloat v) {
 
 inline BOOL MY_IsPad(void) {
     BOOL isPadSupport = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"MY_PadSupport"] boolValue];
-    return isPadSupport && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+    return isPadSupport && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
