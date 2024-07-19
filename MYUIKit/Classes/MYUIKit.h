@@ -20,4 +20,6 @@
 #import "UIColor+MYOpacity.h"
 #import "MBProgressHUD+MYUtils.h"
 
+#import "MYDialog.h"
+
 #endif /* MYUIKit_h */
