@@ -19,6 +19,8 @@
 #import "UIImage+MYColor.h"
 #import "UIColor+MYOpacity.h"
 #import "MBProgressHUD+MYUtils.h"
+#import "UIImage+MYGIF.h"
+#import "NSData+MYUIImage.h"
 
 #import "MYDialog.h"
 
